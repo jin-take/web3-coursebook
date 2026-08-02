@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">HD Wallet、Multi-Signature、MPC</title>
+  <desc id="desc">Seedから複数鍵を導出するHD Walletと、Multi-SignatureおよびMPCの違い</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666666"/></marker><style>.title{font:700 30px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.head{font:700 20px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.label{font:600 15px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.small{font:500 13px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#444444}.card{fill:#fff;stroke:#bdbdbd;stroke-width:2}.arrow{stroke:#666666;stroke-width:2.5;fill:none;marker-end:url(#arrow)}</style></defs>
+  <rect width="1200" height="675" rx="24" fill="#ffffff"/><text x="55" y="58" class="title">鍵管理：生成の階層と、承認の分散は別の仕組み</text>
+
+  <rect x="45" y="95" width="1110" height="230" rx="20" fill="#f4f4f4" stroke="#888888" stroke-width="2"/>
+  <text x="75" y="132" class="head">1. HD Wallet：一つのSeedから多数の鍵・Addressを決定論的に導出</text>
+  <rect x="80" y="170" width="175" height="72" rx="14" fill="#e5e5e5" stroke="#555555" stroke-width="2"/><text x="168" y="200" text-anchor="middle" class="label">Seed Phrase</text><text x="168" y="223" text-anchor="middle" class="small">Backupの起点</text>
+  <path d="M255 206L340 206" class="arrow"/>
+  <rect x="340" y="170" width="175" height="72" rx="14" class="card"/><text x="428" y="200" text-anchor="middle" class="label">Master Key</text><text x="428" y="223" text-anchor="middle" class="small">階層導出</text>
+  <path d="M515 206L600 150M515 206L600 206M515 206L600 262" class="arrow"/>
+  <g><rect x="600" y="120" width="215" height="58" rx="12" class="card"/><text x="708" y="155" text-anchor="middle" class="label">Account 0 / Address 0</text></g>
+  <g><rect x="600" y="184" width="215" height="58" rx="12" class="card"/><text x="708" y="219" text-anchor="middle" class="label">Account 0 / Address 1</text></g>
+  <g><rect x="600" y="248" width="215" height="58" rx="12" class="card"/><text x="708" y="283" text-anchor="middle" class="label">別Chain / Account</text></g>
+  <text x="850" y="190" class="label">重要</text><text x="850" y="216" class="small">Seed漏洩 → 全導出鍵が危険</text><text x="850" y="242" class="small">導出Path違い → Addressが見えない</text>
+
+  <rect x="45" y="350" width="535" height="270" rx="20" fill="#f6f6f6" stroke="#888888" stroke-width="2"/>
+  <text x="75" y="388" class="head">2. Multi-Signature：複数署名をOn-chainで確認</text>
+  <g><circle cx="135" cy="450" r="34" fill="#e8e8e8" stroke="#222222" stroke-width="2"/><text x="135" y="455" text-anchor="middle" class="label">Key A</text><circle cx="285" cy="450" r="34" fill="#e8e8e8" stroke="#222222" stroke-width="2"/><text x="285" y="455" text-anchor="middle" class="label">Key B</text><circle cx="435" cy="450" r="34" fill="#fff" stroke="#999999" stroke-width="2"/><text x="435" y="455" text-anchor="middle" class="label">Key C</text></g>
+  <path d="M135 484L230 525M285 484L260 525" class="arrow"/>
+  <rect x="160" y="525" width="260" height="58" rx="14" fill="#e2e2e2" stroke="#222222" stroke-width="3"/><text x="290" y="550" text-anchor="middle" class="label">2-of-3 条件を満たす</text><text x="290" y="572" text-anchor="middle" class="small">複数の署名値をContract等が検証</text>
+
+  <rect x="605" y="350" width="550" height="270" rx="20" fill="#f3f3f3" stroke="#777777" stroke-width="2"/>
+  <text x="635" y="388" class="head">3. MPC：秘密情報を集めず共同で一つの署名を生成</text>
+  <g><circle cx="700" cy="450" r="36" fill="#dedede" stroke="#444444" stroke-width="2"/><text x="700" y="455" text-anchor="middle" class="label">Share A</text><circle cx="880" cy="450" r="36" fill="#dedede" stroke="#444444" stroke-width="2"/><text x="880" y="455" text-anchor="middle" class="label">Share B</text><circle cx="1060" cy="450" r="36" fill="#fff" stroke="#999999" stroke-width="2"/><text x="1060" y="455" text-anchor="middle" class="label">Share C</text></g>
+  <path d="M700 486L820 525M880 486L850 525" class="arrow"/>
+  <rect x="745" y="525" width="270" height="58" rx="14" fill="#dedede" stroke="#444444" stroke-width="3"/><text x="880" y="550" text-anchor="middle" class="label">標準形式の一つの署名</text><text x="880" y="572" text-anchor="middle" class="small">完全な秘密鍵を一か所に復元しない</text>
+</svg>

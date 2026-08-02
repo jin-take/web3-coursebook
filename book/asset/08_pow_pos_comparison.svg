@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Proof of WorkとProof of Stakeの比較</title>
+  <desc id="desc">PoWとPoSで希少資源がブロック提案、報酬、攻撃コストへ変わる流れ</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666666"/></marker><style>.title{font:700 30px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.head{font:700 23px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.label{font:700 17px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.small{font:500 14px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#444444}.arrow{stroke:#666666;stroke-width:3;fill:none;marker-end:url(#arrow)}.card{fill:#fff;stroke:#bdbdbd;stroke-width:2}</style></defs>
+  <rect width="1200" height="675" rx="24" fill="#ffffff"/><text x="55" y="58" class="title">PoWとPoS：異なる希少資源を「正しく行動する動機」へ変える</text>
+
+  <rect x="45" y="95" width="535" height="470" rx="22" fill="#f5f5f5" stroke="#999999" stroke-width="2"/><text x="312" y="138" text-anchor="middle" class="head">Proof of Work</text>
+  <rect x="105" y="175" width="415" height="64" rx="14" class="card"/><text x="312" y="203" text-anchor="middle" class="label">計算資源・電力・設備</text><text x="312" y="225" text-anchor="middle" class="small">Network外部の物理的Cost</text>
+  <path d="M312 239L312 285" class="arrow"/><rect x="105" y="287" width="415" height="64" rx="14" fill="#ededed" stroke="#444444" stroke-width="2"/><text x="312" y="315" text-anchor="middle" class="label">Hash競争でBlockを提案</text><text x="312" y="337" text-anchor="middle" class="small">Proofは容易に検証可能</text>
+  <path d="M312 351L312 397" class="arrow"/><rect x="105" y="399" width="190" height="76" rx="14" fill="#f0f0f0" stroke="#333333" stroke-width="2"/><text x="200" y="429" text-anchor="middle" class="label">正しい行動</text><text x="200" y="453" text-anchor="middle" class="small">報酬・Fee</text><rect x="330" y="399" width="190" height="76" rx="14" fill="#d6d6d6" stroke="#222222" stroke-width="2"/><text x="425" y="429" text-anchor="middle" class="label">攻撃</text><text x="425" y="453" text-anchor="middle" class="small">電力・機会費用</text>
+  <text x="312" y="520" text-anchor="middle" class="small">代表的Finality：後続Blockで反転確率が低下</text>
+
+  <rect x="620" y="95" width="535" height="470" rx="22" fill="#ececec" stroke="#aaaaaa" stroke-width="2"/><text x="888" y="138" text-anchor="middle" class="head">Proof of Stake</text>
+  <rect x="680" y="175" width="415" height="64" rx="14" class="card"/><text x="888" y="203" text-anchor="middle" class="label">StakeされたNative Asset</text><text x="888" y="225" text-anchor="middle" class="small">Network内部の経済的担保</text>
+  <path d="M888 239L888 285" class="arrow"/><rect x="680" y="287" width="415" height="64" rx="14" fill="#e1e1e1" stroke="#333333" stroke-width="2"/><text x="888" y="315" text-anchor="middle" class="label">Validator選出・提案・投票</text><text x="888" y="337" text-anchor="middle" class="small">Stake等に基づく重み</text>
+  <path d="M888 351L888 397" class="arrow"/><rect x="680" y="399" width="190" height="76" rx="14" fill="#f0f0f0" stroke="#333333" stroke-width="2"/><text x="775" y="429" text-anchor="middle" class="label">正しい行動</text><text x="775" y="453" text-anchor="middle" class="small">Reward・Fee</text><rect x="905" y="399" width="190" height="76" rx="14" fill="#d6d6d6" stroke="#222222" stroke-width="2"/><text x="1000" y="429" text-anchor="middle" class="label">違反</text><text x="1000" y="453" text-anchor="middle" class="small">Slashing</text>
+  <text x="888" y="520" text-anchor="middle" class="small">代表的Finality：Validator投票で明示的に確定</text>
+
+  <rect x="145" y="590" width="910" height="52" rx="14" fill="#fff" stroke="#bdbdbd" stroke-width="2"/><text x="600" y="622" text-anchor="middle" class="label">共通点：Node数ではなく、希少資源の分布と攻撃CostがSecurityを支える</text>
+</svg>

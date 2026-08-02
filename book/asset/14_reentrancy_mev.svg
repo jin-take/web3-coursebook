@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">ReentrancyとMEV</title>
+  <desc id="desc">外部呼び出し中の再入による重複引き出しと、未確定トランザクションの前後へ攻撃者が注文を挿入するMEV</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666666"/></marker><style>.title{font:700 30px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.head{font:700 22px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.label{font:700 15px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.small{font:500 13px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#444444}.life{stroke:#999999;stroke-width:3}.arrow{stroke:#666666;stroke-width:3;fill:none;marker-end:url(#arrow)}.attack{stroke:#222222;stroke-width:4;fill:none;marker-end:url(#arrow)}</style></defs>
+  <rect width="1200" height="675" rx="24" fill="#ffffff"/><text x="55" y="58" class="title">攻撃は「正しい処理の順番」を利用する：ReentrancyとMEV</text>
+
+  <rect x="45" y="95" width="535" height="515" rx="22" fill="#f0f0f0" stroke="#888888" stroke-width="2"/><text x="312" y="137" text-anchor="middle" class="head">Reentrancy：State更新前に再入される</text>
+  <text x="145" y="180" text-anchor="middle" class="label">被害Contract</text><text x="455" y="180" text-anchor="middle" class="label">攻撃Contract</text><line x1="145" y1="195" x2="145" y2="515" class="life"/><line x1="455" y1="195" x2="455" y2="515" class="life"/>
+  <path d="M455 225L145 225" class="arrow"/><text x="300" y="215" text-anchor="middle" class="small">1. withdraw()</text>
+  <path d="M145 285L455 285" class="arrow"/><text x="300" y="273" text-anchor="middle" class="small">2. 外部送金（残高更新前）</text>
+  <path d="M455 345L145 345" class="attack"/><text x="300" y="333" text-anchor="middle" class="small">3. 再び withdraw() へ再入</text>
+  <path d="M145 405L455 405" class="attack"/><text x="300" y="393" text-anchor="middle" class="small">4. 同じ残高を再送金</text>
+  <rect x="85" y="535" width="455" height="50" rx="12" fill="#f0f0f0" stroke="#333333" stroke-width="2"/><text x="312" y="566" text-anchor="middle" class="label">対策：Checks → Effects（残高更新）→ Interactions</text>
+
+  <rect x="620" y="95" width="535" height="515" rx="22" fill="#f5f5f5" stroke="#999999" stroke-width="2"/><text x="888" y="137" text-anchor="middle" class="head">MEV：Block内の順序で利益を得る</text>
+  <rect x="675" y="175" width="425" height="58" rx="13" fill="#e8e8e8" stroke="#222222" stroke-width="2"/><text x="888" y="209" text-anchor="middle" class="label">User：大量購入TransactionをBroadcast</text>
+  <path d="M888 233L888 273" class="arrow"/><rect x="675" y="275" width="425" height="58" rx="13" fill="#e5e5e5" stroke="#555555" stroke-width="2"/><text x="888" y="309" text-anchor="middle" class="label">Pending Poolで内容と価格影響を観測</text>
+  <path d="M888 333L888 373" class="arrow"/>
+  <rect x="690" y="375" width="395" height="142" rx="16" fill="#fff" stroke="#bdbdbd" stroke-width="2"/><text x="720" y="404" class="small">Block内の順序</text><rect x="720" y="417" width="335" height="25" rx="7" fill="#d6d6d6"/><text x="888" y="435" text-anchor="middle" class="small">1. 攻撃者が先に購入（Front Run）</text><rect x="720" y="449" width="335" height="25" rx="7" fill="#e8e8e8"/><text x="888" y="467" text-anchor="middle" class="small">2. Userの購入で価格が上昇</text><rect x="720" y="481" width="335" height="25" rx="7" fill="#d6d6d6"/><text x="888" y="499" text-anchor="middle" class="small">3. 攻撃者が売却（Back Run）</text>
+  <text x="888" y="551" text-anchor="middle" class="label">Userは不利な価格で約定</text><text x="888" y="578" text-anchor="middle" class="small">対策：Slippage制限、Private送信、Batch Auction等</text>
+</svg>

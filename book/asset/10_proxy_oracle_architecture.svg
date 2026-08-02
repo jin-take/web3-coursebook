@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Upgradeable ProxyとOracleの信頼境界</title>
+  <desc id="desc">Proxy ContractからImplementationへ処理を委譲する構造と、外部データがOracleを経由してContractへ入る構造</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666666"/></marker><style>.title{font:700 30px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.head{font:700 22px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.label{font:700 16px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.small{font:500 13px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#444444}.card{fill:#fff;stroke:#bdbdbd;stroke-width:2}.arrow{stroke:#666666;stroke-width:3;fill:none;marker-end:url(#arrow)}.risk{stroke:#222222;stroke-width:3;fill:none;stroke-dasharray:8 6;marker-end:url(#arrow)}</style></defs>
+  <rect width="1200" height="675" rx="24" fill="#ffffff"/><text x="55" y="58" class="title">Smart Contractの二つの信頼境界：Upgrade権限と外部Data</text>
+
+  <rect x="45" y="95" width="535" height="510" rx="22" fill="#f4f4f4" stroke="#888888" stroke-width="2"/><text x="312" y="138" text-anchor="middle" class="head">Upgradeable Proxy</text>
+  <rect x="80" y="180" width="130" height="62" rx="14" class="card"/><text x="145" y="217" text-anchor="middle" class="label">User</text>
+  <path d="M210 211L275 211" class="arrow"/><rect x="275" y="165" width="245" height="92" rx="16" fill="#e8e8e8" stroke="#222222" stroke-width="3"/><text x="398" y="196" text-anchor="middle" class="label">Proxy Address</text><text x="398" y="220" text-anchor="middle" class="small">Stateを保持</text><text x="398" y="241" text-anchor="middle" class="small">Userが呼ぶ固定Address</text>
+  <path d="M398 257L398 325" class="arrow"/><text x="412" y="297" class="small">処理を委譲</text>
+  <rect x="275" y="327" width="245" height="78" rx="16" fill="#e2e2e2" stroke="#222222" stroke-width="3"/><text x="398" y="357" text-anchor="middle" class="label">Implementation V1</text><text x="398" y="382" text-anchor="middle" class="small">実行Logic</text>
+  <rect x="80" y="465" width="175" height="72" rx="14" fill="#d6d6d6" stroke="#222222" stroke-width="2"/><text x="168" y="494" text-anchor="middle" class="label">Proxy Admin</text><text x="168" y="518" text-anchor="middle" class="small">Upgrade権限</text>
+  <path d="M255 501L355 439L398 405" class="risk"/>
+  <rect x="315" y="465" width="205" height="72" rx="14" fill="#dedede" stroke="#444444" stroke-width="2"/><text x="418" y="494" text-anchor="middle" class="label">Implementation V2</text><text x="418" y="518" text-anchor="middle" class="small">将来差し替え可能</text>
+  <text x="312" y="574" text-anchor="middle" class="small">確認：Admin、Multisig、Timelock、Storage Layout</text>
+
+  <rect x="620" y="95" width="535" height="510" rx="22" fill="#f5f5f5" stroke="#999999" stroke-width="2"/><text x="888" y="138" text-anchor="middle" class="head">Oracle</text>
+  <g><rect x="660" y="175" width="130" height="58" rx="12" class="card"/><text x="725" y="210" text-anchor="middle" class="label">取引所 A</text><rect x="660" y="250" width="130" height="58" rx="12" class="card"/><text x="725" y="285" text-anchor="middle" class="label">取引所 B</text><rect x="660" y="325" width="130" height="58" rx="12" class="card"/><text x="725" y="360" text-anchor="middle" class="label">市場 C</text></g>
+  <path d="M790 204L855 263M790 279L855 279M790 354L855 295" class="arrow"/>
+  <rect x="855" y="230" width="245" height="98" rx="16" fill="#ededed" stroke="#444444" stroke-width="3"/><text x="978" y="263" text-anchor="middle" class="label">Oracle Network</text><text x="978" y="287" text-anchor="middle" class="small">収集・集約・署名</text><text x="978" y="308" text-anchor="middle" class="small">Price Feedを更新</text>
+  <path d="M978 328L978 400" class="arrow"/><rect x="855" y="402" width="245" height="82" rx="16" fill="#e2e2e2" stroke="#222222" stroke-width="3"/><text x="978" y="434" text-anchor="middle" class="label">DeFi Contract</text><text x="978" y="458" text-anchor="middle" class="small">貸付・清算・交換を判断</text>
+  <path d="M725 383L835 460" class="risk"/><text x="690" y="430" class="small">操作・停止・遅延</text>
+  <text x="888" y="533" text-anchor="middle" class="label">Blockchainは外部価格を直接観測できない</text><text x="888" y="558" text-anchor="middle" class="small">確認：Data Source、更新頻度、異常時動作</text>
+</svg>

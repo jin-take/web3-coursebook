@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">AMM、Slippage、Liquidation</title>
+  <desc id="desc">AMMのLiquidity Poolで大口取引ほど価格影響が大きくなることと、担保価格低下から清算に至る流れ</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#666666"/></marker><style>.title{font:700 30px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.head{font:700 22px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.label{font:700 16px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.small{font:500 13px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#444444}.axis{stroke:#666666;stroke-width:2}.curve{stroke:#222222;stroke-width:4;fill:none}.arrow{stroke:#666666;stroke-width:3;fill:none;marker-end:url(#arrow)}</style></defs>
+  <rect width="1200" height="675" rx="24" fill="#ffffff"/><text x="55" y="58" class="title">DeFiの数値変化：AMMの価格影響と担保清算</text>
+
+  <rect x="45" y="95" width="535" height="510" rx="22" fill="#f4f4f4" stroke="#888888" stroke-width="2"/><text x="312" y="137" text-anchor="middle" class="head">AMM：x × y = k</text>
+  <line x1="115" y1="445" x2="520" y2="445" class="axis"/><line x1="115" y1="445" x2="115" y2="180" class="axis"/><text x="500" y="470" class="small">Token X</text><text x="72" y="190" class="small">Token Y</text>
+  <path d="M145 195C175 280 220 340 285 380C350 420 425 433 500 438" class="curve"/>
+  <circle cx="235" cy="351" r="9" fill="#222222"/><text x="185" y="333" class="label">取引前</text>
+  <circle cx="300" cy="388" r="9" fill="#333333"/><path d="M245 354L290 383" stroke="#333333" stroke-width="4" marker-end="url(#arrow)"/><text x="270" y="425" class="small">小口：小さな価格影響</text>
+  <circle cx="440" cy="433" r="9" fill="#222222"/><path d="M245 354L428 427" stroke="#222222" stroke-width="4" marker-end="url(#arrow)"/><text x="325" y="490" class="small">大口：曲線を大きく移動 → Slippage増加</text>
+  <rect x="105" y="520" width="415" height="58" rx="14" fill="#fff" stroke="#bdbdbd" stroke-width="2"/><text x="312" y="545" text-anchor="middle" class="label">Poolに対する取引額の比率が重要</text><text x="312" y="567" text-anchor="middle" class="small">表示価格と平均約定価格は異なる</text>
+
+  <rect x="620" y="95" width="535" height="510" rx="22" fill="#f5f5f5" stroke="#999999" stroke-width="2"/><text x="888" y="137" text-anchor="middle" class="head">Collateral → Liquidation</text>
+  <g transform="translate(680 185)"><rect width="415" height="72" rx="15" fill="#f0f0f0" stroke="#333333" stroke-width="2"/><text x="208" y="29" text-anchor="middle" class="label">担保価値 100 / Debt 60</text><text x="208" y="54" text-anchor="middle" class="small">LTV = 60%　安全余裕あり</text></g>
+  <path d="M888 257L888 310" class="arrow"/><text x="905" y="290" class="small">担保価格が下落</text>
+  <g transform="translate(680 312)"><rect width="415" height="72" rx="15" fill="#e5e5e5" stroke="#555555" stroke-width="2"/><text x="208" y="29" text-anchor="middle" class="label">担保価値 80 / Debt 60</text><text x="208" y="54" text-anchor="middle" class="small">LTV = 75%　清算閾値へ到達</text></g>
+  <path d="M888 384L888 437" class="arrow"/>
+  <g transform="translate(680 439)"><rect width="415" height="82" rx="15" fill="#d6d6d6" stroke="#222222" stroke-width="3"/><text x="208" y="30" text-anchor="middle" class="label">LiquidatorがDebtを返済</text><text x="208" y="56" text-anchor="middle" class="small">担保を割引取得・借り手はPenalty</text></g>
+  <text x="888" y="559" text-anchor="middle" class="label">Price・利息・Oracle更新でLTVは変化する</text><text x="888" y="582" text-anchor="middle" class="small">閾値ぎりぎりではなく安全余裕を確保</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Merkle Treeとデータ存在証明</title>
+  <desc id="desc">4件のトランザクションからMerkle Rootを計算し、Transaction Cの存在証明に必要なハッシュを示す図</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#666666"/></marker>
+    <style>
+      .title{font:700 30px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.sub{font:500 16px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#444444}.label{font:700 17px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#111111}.small{font:500 14px system-ui,-apple-system,'Noto Sans JP',sans-serif;fill:#444444}.node{fill:#fff;stroke:#999999;stroke-width:2}.proof{fill:#e5e5e5;stroke:#555555;stroke-width:3}.target{fill:#e8e8e8;stroke:#222222;stroke-width:3}.root{fill:#e2e2e2;stroke:#222222;stroke-width:3}.line{stroke:#999999;stroke-width:3;fill:none}.path{stroke:#222222;stroke-width:5;fill:none}
+    </style>
+  </defs>
+  <rect width="1200" height="675" rx="24" fill="#ffffff"/>
+  <text x="56" y="58" class="title">Merkle Tree：全データを受け取らずに「含まれる」を検証する</text>
+  <text x="56" y="88" class="sub">例：Transaction C の包含証明では、青い経路と黄色の兄弟Hashだけを利用する</text>
+
+  <path d="M600 168L365 278M600 168L835 278M365 338L245 448M365 338L485 448M835 338L715 448M835 338L955 448" class="line"/>
+  <path d="M715 448L835 338L600 168" class="path"/>
+
+  <rect x="500" y="118" width="200" height="72" rx="16" class="root"/>
+  <text x="600" y="148" text-anchor="middle" class="label">Merkle Root</text>
+  <text x="600" y="172" text-anchor="middle" class="small">H(hAB ‖ hCD)</text>
+
+  <rect x="275" y="278" width="180" height="60" rx="14" class="proof"/>
+  <text x="365" y="314" text-anchor="middle" class="label">hAB</text>
+  <rect x="745" y="278" width="180" height="60" rx="14" class="target"/>
+  <text x="835" y="314" text-anchor="middle" class="label">hCD</text>
+
+  <g><rect x="170" y="448" width="150" height="64" rx="14" class="node"/><text x="245" y="476" text-anchor="middle" class="label">hA</text><text x="245" y="498" text-anchor="middle" class="small">Tx A</text></g>
+  <g><rect x="410" y="448" width="150" height="64" rx="14" class="node"/><text x="485" y="476" text-anchor="middle" class="label">hB</text><text x="485" y="498" text-anchor="middle" class="small">Tx B</text></g>
+  <g><rect x="640" y="448" width="150" height="64" rx="14" class="target"/><text x="715" y="476" text-anchor="middle" class="label">hC</text><text x="715" y="498" text-anchor="middle" class="small">検証対象 Tx C</text></g>
+  <g><rect x="880" y="448" width="150" height="64" rx="14" class="proof"/><text x="955" y="476" text-anchor="middle" class="label">hD</text><text x="955" y="498" text-anchor="middle" class="small">兄弟Hash</text></g>
+
+  <rect x="96" y="565" width="1008" height="72" rx="16" fill="#fff" stroke="#bdbdbd" stroke-width="2"/>
+  <circle cx="135" cy="589" r="10" fill="#222222"/><text x="155" y="595" class="small">検証対象と再計算経路</text>
+  <circle cx="405" cy="589" r="10" fill="#555555"/><text x="425" y="595" class="small">Proofとして受け取るHash：hD、hAB</text>
+  <text x="135" y="620" class="label">hCD = H(hC ‖ hD) → Root = H(hAB ‖ hCD) → 既知のRootと一致すれば包含を確認</text>
+</svg>
